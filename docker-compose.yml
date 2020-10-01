@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   redirectphp:
-    image: "	limweb/phpserv7:latest"
+    image: "limweb/phpserv7:latest"
     container_name: redirectphp
     working_dir: /app
     restart: "always"
