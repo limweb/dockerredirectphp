@@ -1,23 +1,23 @@
 #  docker-compose -f docker-compose.yml config check validate config
 version: "2.1"
 services:
-  redirectphp:
-    image: "limweb/phpserv7:latest"
-    container_name: redirectphp
-    working_dir: /app
+  redirectsrv:
+    image: "limweb/phpserv7"
+    container_name: redirectsrv
+    working_dir: /var/www/html
     restart: always
     ports:
-      - "8080:8080"    
+      - "8080"    
     volumes:
-      - ./app:/app
+      - ./app:/var/www/html
     labels:
-      com.docker.compose.project: "redirectphp"
+      com.docker.compose.project: "redirectsrv"
     environment:
       SERVER_REDIRECT: "thaifex==https://thaifexportervirtualtradeshow.com"
       DEFAULT_REDIRECT: "https://thaifexportervirtualtradeshow.com"
-      # VIRTUAL_HOST: "redirectphp.local.com"
+      # VIRTUAL_HOST: "redirectsrv.local.com"
       # VIRTUAL_PORT: "8080"
-      # LETSENCRYPT_HOST: "redirectphp.local.com"
+      # LETSENCRYPT_HOST: "redirectsrv.local.com"
       # LETSENCRYPT_EMAIL: "your@email.com"
 
 networks:
