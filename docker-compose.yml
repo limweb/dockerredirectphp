@@ -5,12 +5,9 @@ services:
     image: "limweb/phpserv7:latest"
     container_name: redirectphp
     working_dir: /app
-    restart: "always"
+    restart: always
     ports:
-      - "8080:8080"
-    expose:
-      - "8080"
-    command: "/usr/local/bin/php /app/index.php"
+      - "8080:8080"    
     volumes:
       - ./app:/app
     labels:
@@ -19,14 +16,12 @@ services:
       SERVER_REDIRECT: "thaifex==https://thaifexportervirtualtradeshow.com"
       DEFAULT_REDIRECT: "https://thaifexportervirtualtradeshow.com"
       # VIRTUAL_HOST: "redirectphp.local.com"
-      # VIRTUAL_PORT: "8080:8080"
+      # VIRTUAL_PORT: "8080"
       # LETSENCRYPT_HOST: "redirectphp.local.com"
       # LETSENCRYPT_EMAIL: "your@email.com"
-    network_mode:  "bridge"
 
 networks:
    default:
-     driver: bridge
      external:
        name: nginx-network
 
